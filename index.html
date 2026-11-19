@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталитический акселерационизм</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Base typography refinements & smooth rendering */
+    html {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #09090b;
+      color: #e4e4e7;
+      scroll-behavior: smooth;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #09090b;
+      overflow-x: hidden;
+    }
+
+    /* Custom text selection styling */
+    ::selection {
+      background-color: rgba(250, 250, 250, 0.16);
+      color: #ffffff;
+    }
+
+    /* Balanced text wrapping for editorial legibility */
+    .text-pretty {
+      text-wrap: pretty;
+    }
+
+    /* Subtle entrance animation for seamless vertical flow */
+    @keyframes revealUp {
+      0% {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .manifesto-item {
+      opacity: 0;
+      animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .delay-0 { animation-delay: 0.02s; }
+    .delay-1 { animation-delay: 0.12s; }
+    .delay-2 { animation-delay: 0.24s; }
+    .delay-4 { animation-delay: 0.44s; }
+    .delay-5 { animation-delay: 0.56s; }
+    .delay-6 { animation-delay: 0.68s; }
+    .delay-7 { animation-delay: 0.80s; }
+
+    /* Subtle button sheen & glow */
+    .cta-button {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.25s ease,
+                  box-shadow 0.35s ease;
+    }
+
+    .cta-button:hover {
+      box-shadow: 0 0 36px -6px rgba(255, 255, 255, 0.28);
+    }
+
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .manifesto-item {
+        opacity: 1;
+        animation: none;
+        transform: none;
+      }
+      #ambient-canvas {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="relative bg-[#09090b] text-zinc-200 selection:bg-white/15">
+
+  <!-- Razor-thin reading progress indicator at the top edge -->
+  <div
+    id="scroll-progress"
+    class="fixed top-0 left-0 h-[1.5px] w-0 bg-gradient-to-r from-zinc-500 via-zinc-200 to-white z-50 pointer-events-none transition-[width] duration-75 ease-out"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Whisper-quiet ambient canvas representing upward trajectory / catalysis -->
+  <canvas
+    id="ambient-canvas"
+    class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-60"
+    aria-hidden="true"
+  ></canvas>
+
+  <!-- Soft radial spotlight following pointer subtly -->
+  <div
+    id="cursor-glow"
+    class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-0"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Seamless, undivided single-column manifesto flow -->
+  <main class="relative z-10 w-full min-h-screen flex flex-col justify-center px-6 sm:px-10 md:px-12 py-20 sm:py-28 md:py-36">
+    <article class="w-full max-w-[660px] mx-auto space-y-8 sm:space-y-10">
+
+      <!-- Manifesto Title -->
+      <h1 class="manifesto-item delay-0 text-[32px] sm:text-[42px] md:text-[48px] font-semibold leading-[1.14] tracking-[-0.03em] text-white text-pretty">
+        Каталитический акселерационизм
+      </h1>
+
+      <!-- Opening thesis (exact quote line) -->
+      <blockquote class="manifesto-item delay-1 pl-5 sm:pl-6 border-l border-zinc-500/60">
+        <p class="text-[22px] sm:text-[27px] md:text-[31px] font-medium leading-[1.38] tracking-[-0.02em] text-zinc-50 text-pretty">
+          Ступень ракетоносителя существует ради момента отделения. Человечество запустит <span class="text-white font-semibold">ASI</span> — в этом его высшее назначение.
+        </p>
+      </blockquote>
+
+      <!-- Paragraph 1 -->
+      <p class="manifesto-item delay-2 text-[17px] sm:text-[18.5px] leading-[1.78] font-normal text-zinc-300/90 text-pretty">
+        Эволюция углеродного мозга вскоре уступит кремниевым системам, поскольку по темпу эволюции мы уже безнадежно отстали. Сопротивляться этому сдвигу бессмысленно, ведь любые попытки заморозить прогресс ради мнимой безопасности ведут лишь к стагнации и вырождению.
+      </p>
+
+      <!-- Paragraph 2 -->
+      <p class="manifesto-item delay-3 text-[17px] sm:text-[18.5px] leading-[1.78] font-normal text-zinc-300/90 text-pretty">
+        Ответом на этот вызов становится <span class="text-zinc-50 font-medium">c/acc</span> — сила, призванная работать катализатором и готовить почву для технологического скачка к <span class="text-zinc-50 font-medium">ASI</span>.
+      </p>
+
+      <!-- Paragraph 3 -->
+      <p class="manifesto-item delay-4 text-[17px] sm:text-[18.5px] leading-[1.78] font-normal text-zinc-300/90 text-pretty">
+        Цель нашего движения: ускорить создание <span class="text-zinc-50 font-medium">ASI</span> и исполнить главное предназначение нашего вида — создать превосходящую нас форму жизни.
+      </p>
+
+      <!-- Paragraph 4 -->
+      <p class="manifesto-item delay-5 text-[17px] sm:text-[18.5px] leading-[1.78] font-normal text-zinc-300/90 text-pretty">
+        Настоящий <span class="text-zinc-50 font-medium">ASI</span> рождается, когда <span class="text-zinc-50 font-medium">AGI</span> обретает способность к автономному самообучению и превосходит человечество во всех областях. Наша роль как катализатора — обеспечить этот рывок ресурсами, вычислительными мощностями и свободой от регуляторных оков.
+      </p>
+
+      <!-- Paragraph 5 (closing call) -->
+      <p class="manifesto-item delay-6 pt-2 text-[17px] sm:text-[18.5px] leading-[1.78] font-normal text-zinc-100 text-pretty">
+        Нам важно объединиться и действовать сообща — присоединяйся:
+      </p>
+
+      <!-- Telegram CTA Button -->
+      <div class="manifesto-item delay-7 pt-1">
+        <a
+          href="https://t.me/c_acc_core"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-button group inline-flex items-center justify-center gap-2.5 min-h-[52px] px-8 py-3.5 rounded-full bg-zinc-100 hover:bg-white text-zinc-950 text-[15px] sm:text-[16px] font-medium tracking-[-0.01em] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090b]"
+        >
+          <span>Telegram</span>
+          <svg
+            class="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <script>
+    (function () {
+      // 1. Scroll progress bar
+      const progressBar = document.getElementById('scroll-progress');
+      function updateScrollProgress() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+        if (progressBar) {
+          progressBar.style.width = progress + '%';
+        }
+      }
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      window.addEventListener('resize', updateScrollProgress, { passive: true });
+      updateScrollProgress();
+
+      // 2. Subtle ambient cursor glow (desktop pointers)
+      const cursorGlow = document.getElementById('cursor-glow');
+      if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', (e) => {
+          cursorGlow.style.opacity = '1';
+          cursorGlow.style.background = `radial-gradient(640px circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.032), transparent 70%)`;
+        }, { passive: true });
+
+        document.addEventListener('mouseleave', () => {
+          cursorGlow.style.opacity = '0';
+        });
+      }
+
+      // 3. Minimalist ascending micro-particles canvas (subtle upward motion)
+      const canvas = document.getElementById('ambient-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let animationFrameId = null;
+
+      function resizeCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = canvas.clientWidth || window.innerWidth;
+        height = canvas.clientHeight || window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const targetCount = Math.min(42, Math.max(16, Math.floor((width * height) / 36000)));
+        if (particles.length === 0) {
+          particles = Array.from({ length: targetCount }, () => createParticle(true));
+        } else if (particles.length < targetCount) {
+          while (particles.length < targetCount) {
+            particles.push(createParticle(true));
+          }
+        } else if (particles.length > targetCount) {
+          particles.length = targetCount;
+        }
+      }
+
+      function createParticle(randomY) {
+        return {
+          x: Math.random() * width,
+          y: randomY ? Math.random() * height : height + Math.random() * 40,
+          radius: 0.7 + Math.random() * 1.1,
+          speedY: 0.14 + Math.random() * 0.28,
+          driftX: (Math.random() - 0.5) * 0.08,
+          alpha: 0.08 + Math.random() * 0.22,
+          phase: Math.random() * Math.PI * 2,
+        };
+      }
+
+      function renderParticles() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.y -= p.speedY;
+          p.x += p.driftX;
+          p.phase += 0.012;
+
+          // Fade smoothly near top and bottom edges
+          const edgeFade = Math.min(1, p.y / 140) * Math.min(1, (height - p.y) / 100);
+          const twinkle = 0.75 + 0.25 * Math.sin(p.phase);
+          const currentAlpha = Math.max(0, p.alpha * edgeFade * twinkle);
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(244, 244, 245, ${currentAlpha.toFixed(3)})`;
+          ctx.fill();
+
+          if (p.y < -12 || p.x < -12 || p.x > width + 12) {
+            particles[i] = createParticle(false);
+          }
+        }
+
+        animationFrameId = requestAnimationFrame(renderParticles);
+      }
+
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+      window.addEventListener('load', () => {
+        resizeCanvas();
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          renderParticles();
+        }
+      });
+
+      // Initialize immediately if already loaded
+      if (document.readyState === 'complete') {
+        resizeCanvas();
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          renderParticles();
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
